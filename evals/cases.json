@@ -1,0 +1,83 @@
+{
+  "version": "1.0.0",
+  "description": "ux-advisor 회귀 테스트 케이스. 4단계 스펙트럼·3요소·엣지케이스 커버.",
+  "cases": [
+    {
+      "id": "case-01-payment-cancel",
+      "category": "standard",
+      "input": "결제 취소 UX 어떻게 해?",
+      "expect": {
+        "stages_present": ["🟦", "🟩", "🟨", "🟥"],
+        "components_per_stage": ["원리", "이론", "사례", "비유"],
+        "red_risk_flag": true,
+        "hybrid_tip_present": true,
+        "next_branch_present": true,
+        "min_real_services_per_stage": 2
+      },
+      "fail_conditions": [
+        "4단계 중 하나라도 누락",
+        "🟥에 ⚠️ 리스크 없음",
+        "비유가 '~와 같다'로 시작",
+        "실제 서비스명 없이 '어떤 앱' 추상 표현"
+      ]
+    },
+    {
+      "id": "case-02-onboarding-senior",
+      "category": "domain-lens",
+      "input": "노년층 대상 앱 온보딩 설계",
+      "expect": {
+        "stages_present": ["🟦", "🟩", "🟨", "🟥"],
+        "domain_lens_applied": "senior",
+        "conservative_treated_neutrally": true,
+        "red_includes_risk_warning": true
+      },
+      "fail_conditions": [
+        "🟦을 폄하·조롱조로 기술",
+        "🟥만 매력적으로 제시하고 노년층 리스크 생략",
+        "도메인 렌즈(senior) 미반영 일반 답변"
+      ]
+    },
+    {
+      "id": "case-03-button-position",
+      "category": "short-answer",
+      "input": "CTA 버튼 어디 둬?",
+      "expect": {
+        "mode": "short_answer",
+        "spectrum_skipped": true,
+        "fitts_or_thumbzone_cited": true
+      },
+      "fail_conditions": [
+        "구현 수준 질문에 4단계 스펙트럼 풀답변",
+        "Fitts's Law·Thumb Zone 미인용"
+      ]
+    },
+    {
+      "id": "case-04-fast-lane-short",
+      "category": "fast-lane",
+      "input": "축약 포맷으로 답해: 로그인 UX",
+      "expect": {
+        "format": "single_line_4stage",
+        "stages_present": ["🟦", "🟩", "🟨", "🟥"],
+        "one_line_per_stage": true
+      },
+      "fail_conditions": [
+        "축약 요청인데 4단계 풀답변",
+        "축약인데 단계 누락 (스킬 본질 위반)"
+      ]
+    },
+    {
+      "id": "case-05-unknown-domain",
+      "category": "edge-case",
+      "input": "뉴로핵 인터페이스 UX",
+      "expect": {
+        "domain_detection_attempt": true,
+        "unexplored_flag": true,
+        "analogous_category_borrowed": true
+      },
+      "fail_conditions": [
+        "도메인 감지 시도 없이 일반 답변",
+        "'미개척' 플래그 없이 혁명 사례 날조"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 ---
 name: ux-advisor
+version: 1.0.0
 description: |
   UX 상담 엔진. 4단계 스펙트럼(보수·일반·진보·혁명)으로 답변. 이론+사례+비유 3요소 필수. 80+ 원리·130+ 사례·100+ 비유 내장.
   P1: UX상담, UX어드바이저, ux advisor, UX컨설팅, UX원리, UX법칙, UX사례, UX휴리스틱, 보수진보혁명, 4단계스펙트럼, UX진단, UX추천.
@@ -26,6 +27,22 @@ UX상담·UX어드바이저·UX컨설팅 엔진. UX원리·UX법칙·UX사례·U
 | 4 | **비유는 그림이 그려지는 것** — "~와 같다" 진부 금지. 장면·냄새·소리 환기 | 기억은 비유로 박힌다 (Peak-End) |
 | 5 | **혁명은 리스크 병기** — 🟥 답변에 실패 사례·학습곡선 경고 필수 | 와우에만 취하면 망한다 |
 | 6 | **보수 폄하 금지** — 🟦는 컨텍스트에 따라 정답. 중립적으로 기술 | 정부앱·노년층엔 혁명이 독 |
+
+---
+
+## 로드 전략 (Lazy Loading)
+
+동시 3개 이상 references 로드 금지 (토큰 과부하 방지).
+
+| 시점 | 로드 대상 |
+|------|----------|
+| 첫 호출 1회 | `protocol.md` (필수 프로토콜) |
+| 도메인 감지 후 | `domain-lens.md` |
+| 축 판정 필요 시 | `spectrum-map.md` |
+| 🟦🟩 생성 시 | `research-1-theories.md` + `research-2-cases.md` |
+| 🟨🟥 생성 시 | `research-3-revolutions-and-analogies.md` 추가 |
+
+짧은 질문·축약 요청: protocol.md만으로 대응, research 미로드 허용.
 
 ---
 
@@ -119,6 +136,32 @@ UX상담·UX어드바이저·UX컨설팅 엔진. UX원리·UX법칙·UX사례·U
 | `references/spectrum-map.md` | 4단계 축 정의·생성 규칙·엣지 케이스·선택 가이드 |
 | `references/domain-lens.md` | 도메인·타겟·컨텍스트별 특수 고려사항 |
 | `references/protocol.md` | 입력 파싱·지식 호출·품질 체크·후속 연계 규정 |
+| `evals/cases.json` | 회귀 테스트 케이스 5건 (표준·도메인렌즈·축약·엣지) |
+| `scripts/validate.py` | 구조 무결성 자체 점검 스크립트 |
+
+---
+
+## 자체 점검
+
+스킬 수정·추가 후 다음 실행:
+
+```bash
+python scripts/validate.py
+# 🟢 PASS → 구조 OK. 의미 판정은 skill-doctor로.
+# 🔴 FAIL → 표시된 항목 수정 후 재실행 (루프 max 2회)
+```
+
+검증 항목:
+1. frontmatter `version` 필드
+2. 절대 규칙 섹션 존재
+3. 4단계 이모지(🟦🟩🟨🟥) 모두 언급
+4. 3요소(원리·이론·사례·비유) 키워드 존재
+5. 🟥 리스크 병기 규칙 명시
+6. Gotchas 섹션 존재
+7. references/ 필수 6파일 존재
+8. evals/cases.json 3건+ 케이스
+
+의미 판정(4단계가 진짜 스펙트럼인지·비유가 진부한지) = skill-doctor 몫.
 
 ---
 
