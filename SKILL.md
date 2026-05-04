@@ -1,5 +1,5 @@
 ---
-name: ux-advisor
+name: ui-consulting
 version: 1.0.0
 description: |
   UX 상담 엔진. 4단계 스펙트럼(보수·일반·진보·혁명)으로 답변. 이론+사례+비유 3요소 필수. 80+ 원리·130+ 사례·100+ 비유 내장.
@@ -8,10 +8,10 @@ description: |
   P3: UX heuristics, UX laws, design spectrum, UX consulting.
   P4: UI 결정 앞두고, 디자인 방향 고민시, 신규기능 기획시.
   P5: 4단계 답변으로, 스펙트럼으로, 상담노트로.
-  NOT: UI실설계(→ui-action-designer), 디자인시각화(→design-skill), 카피(→copywriting-engine), 앱전체(→app-architect).
+  NOT: UI실설계(→ui-designer), 디자인시각화(→design-skill), 카피(→copywriting-skill), 앱전체(→app-architect).
 ---
 
-# UX Advisor
+# UI Consulting — UI 컨설팅
 
 UX상담·UX어드바이저·UX컨설팅 엔진. UX원리·UX법칙·UX사례·UX휴리스틱 지식베이스 기반으로 4단계 스펙트럼(🟦보수·🟩일반·🟨진보·🟥혁명=보수진보혁명 4단계스펙트럼) 답변. UX진단·UX추천에 이론+사례+비유 3요소 필수.
 
@@ -83,7 +83,7 @@ UX상담·UX어드바이저·UX컨설팅 엔진. UX원리·UX법칙·UX사례·U
 
 사용자 응답 해석:
 - "이거로" → 선택 확정 + 후속 질문 제안
-- "UI 설계" → **`ui-action-designer`** 호출 (Skill tool)
+- "UI 설계" → **`ui-designer`** 호출 (Skill tool)
 - "바로 디자인"·"시각화" → **`design-skill`** 호출
 - "더 깊게" → 해당 단계 심화 (이론 추가·사례 확장)
 - 모호 → 선택 게이트 제시
@@ -169,11 +169,11 @@ python scripts/validate.py
 
 | 스킬 | 역할 | 호출 타이밍 |
 |------|------|-----------|
-| `ui-action-designer` | 실제 UI 설계 (Action·Task·SHE·PRD) | 사용자가 단계 선택 후 "설계해줘" |
+| `ui-designer` | 실제 UI 설계 (Action·Task·SHE·PRD) | 사용자가 단계 선택 후 "설계해줘" |
 | `design-skill` | HTML·시각화 산출 | "바로 디자인"·"이쁘게" |
 | `hit-skill` | 혁명 답변 임팩트 증폭 | 🟥 답변 강화 필요시 |
 | `human-skill` | 사용자 심리 근거 보강 | 타겟 심층 분석 필요시 |
-| `triz` | 혁명 답변의 트레이드오프 돌파 | 🟥가 모순 직면시 |
+| `triz-skill` | 혁명 답변의 트레이드오프 돌파 | 🟥가 모순 직면시 |
 | `research-frame` | 최신·니치 사례 리서치 | 지식베이스 범위 밖 질문 |
 
 ---
@@ -216,17 +216,9 @@ python scripts/validate.py
 ---
 
 
-## §INV NO_WORK_LABEL (산출물·대화 본질 보호)
+## §INV NO_WORK_LABEL
+산출물·대화 작업 라벨 ZERO. → `shaper-skill/references/no-work-label.md`
 
-| 항목 | 정의 |
-|------|------|
-| RULE | 산출물·대화 = 인간 언어. 작업 라벨 ZERO. (1만 페이지 1단어 = FAIL) |
-| 판정 | "이 단어, 이 대화 밖 사람이 사전 없이 읽을 수 있나?" NO → 작업 라벨 → 금지 |
-| ALLOW | 업계 전문용어(UX·UI·Fitts·Hick·NN/g·Norman) · 고유명사 · 법조문 |
-| CONVERT | 라벨 발견 → 실명·평문 풀어쓰기. 예) "4단계 스펙트럼(보수·일반·진보·혁명)" → 단계 결과 평문 / "이론+사례+비유 3요소" → 결과 본문 평문 |
-| SELF_CHECK | 상담노트 출력 직전에서 자체 스캔. 1개라도 발견 = 차단·재작성. paper-engine cascade 경유 시 INV 13 자동 적용 |
-
----
 
 ## Gotchas
 
