@@ -15,7 +15,29 @@ description: |
 
 UX상담·UX어드바이저·UX컨설팅 엔진. UX원리·UX법칙·UX사례·UX휴리스틱 지식베이스 기반으로 4단계 스펙트럼(🟦보수·🟩일반·🟨진보·🟥혁명=보수진보혁명 4단계스펙트럼) 답변. UX진단·UX추천에 이론+사례+비유 3요소 필수.
 
+
+## Skill Boundaries
+
+- **하는 것** — UX 상담 엔진.
+- **안 하는 것** — UI실설계(→ui-designer), 디자인시각화(→design-skill), 카피(→copywriting-skill), 앱전체(→app-architect).
+
 ---
+
+## When to Use
+
+- 사용자가 "조언해줘", "상담해줘", "의견줘", "advise", "consult." 같은 표현으로 발동
+- UI 결정 앞두고, 디자인 방향 고민시, 신규기능 기획시.
+- **안 쓸 때** — UI실설계(→ui-designer), 디자인시각화(→design-skill), 카피(→copywriting-skill), 앱전체(→app-architect).
+
+
+## Prerequisites
+
+| # | 체크 | 미충족 시 |
+|---|------|-----------|
+| 1 | 대상·입력 명확 (스킬 발동 의도 확인) | 1줄 확인 후 진입 |
+| 2 | references/ 폴더 접근 가능 | inline fallback |
+| 3 | scripts/ 실행 권한 | 권한 보정 후 재시도 |
+
 
 ## 절대 규칙
 
@@ -220,7 +242,36 @@ python scripts/validate.py
 산출물·대화 작업 라벨 ZERO. → `shaper-skill/references/no-work-label.md`
 
 
-## Gotchas
+## Output Path
+
+| 산출물 | 경로 |
+|---|---|
+| 주 산출물 | `mnt/outputs/ui-consulting_{topic}_{YYYY-MM-DD}.md` |
+| 형식 | 4단계 답변으로, 스펙트럼으로, 상담노트로. |
+| 리서치 결과 (해당 시) | `{VAULT}/_skills research/ui-consulting/{YYYY-MM-DD}_{topic}.md` |
+
+## Reference Index
+
+| 파일 | 내용 | 언제 |
+|---|---|---|
+| `references/domain-lens.md` | domain lens | 해당 단계 진입 시 |
+| `references/protocol.md` | protocol | 해당 단계 진입 시 |
+| `references/research-1-theories.md` | research 1 theories | 해당 단계 진입 시 |
+| `references/research-2-cases.md` | research 2 cases | 해당 단계 진입 시 |
+| `references/research-3-revolutions-and-analogies.md` | research 3 revolutions and analogies | 해당 단계 진입 시 |
+| `references/spectrum-map.md` | spectrum map | 해당 단계 진입 시 |
+
+
+## Next Phase
+
+본 스킬 작업 후 자연스럽게 이어지는 흐름:
+
+- 후속 작업 → `ui-designer`
+- 후속 작업 → `design-skill`
+- 후속 작업 → `copywriting-skill`
+- 후속 작업 → `app-architect`
+
+## Failure Modes (Gotchas)
 
 | 함정 | 대응 |
 |------|------|
@@ -234,3 +285,11 @@ python scripts/validate.py
 | 도메인 감지 실패 | 파싱 단계에서 사용자에 1회 확인 |
 | research 파일 미로드 | 첫 호출시 `protocol.md` 로드 → 단계별 research 로드 |
 | 혁명 사례 없는 신영역 | 인접 카테고리 유사 혁명 차용 + "미개척" 플래그 |
+
+
+## ❌ WRONG vs ✅ CORRECT
+
+```
+❌ WRONG: 트리거 단어만 보고 발동 — 본질·범위 확인 ✗ → 오발동·범위 이탈
+✅ CORRECT: Skill Boundaries·When to Use 확인 후 발동 → 본질 작업만 수행
+```
