@@ -1,14 +1,7 @@
 ---
 name: ui-consulting
-version: 1.0.0
 description: |
-  UX 상담 엔진. 4단계 스펙트럼(보수·일반·진보·혁명)으로 답변. 이론+사례+비유 3요소 필수. 80+ 원리·130+ 사례·100+ 비유 내장.
-  P1: UX상담, UX어드바이저, ux advisor, UX컨설팅, UX원리, UX법칙, UX사례, UX휴리스틱, 보수진보혁명, 4단계스펙트럼, UX진단, UX추천.
-  P2: 조언해줘, 상담해줘, 의견줘, advise, consult.
-  P3: UX heuristics, UX laws, design spectrum, UX consulting.
-  P4: UI 결정 앞두고, 디자인 방향 고민시, 신규기능 기획시.
-  P5: 4단계 답변으로, 스펙트럼으로, 상담노트로.
-  NOT: UI실설계(→ui-designer), 디자인시각화(→design-skill), 카피(→copywriting-skill), 앱전체(→app-architect).
+  UX 상담 엔진. 4단계 스펙트럼(보수·일반·진보·혁명)으로 답변. 이론+사례+비유 3요소 필수. 80+ 원리·130+ 사례·100+ 비유 내장. 트리거: UX상담, UX어드바이저, ux advisor, UX컨설팅, UX원리, UX법칙, UX사례, UX휴리스틱, 보수진보혁명, 4단계스펙트럼, UX진단, UX추천, 조언해줘, 상담해줘, 의견줘, advise, consult. NOT: UI실설계(→ui-designer), 디자인시각화(→design-skill), 카피(→copywriting-skill), 앱전체(→app-architect).
 ---
 
 # UI Consulting — UI 컨설팅
